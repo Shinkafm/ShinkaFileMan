@@ -10,7 +10,7 @@ android {
     
     defaultConfig {
         applicationId = "com.shinka.filemanager"
-        minSdk = 21
+        minSdk = 22
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
