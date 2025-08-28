@@ -3,28 +3,106 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
         
     <com.google.android.material.appbar.AppBarLayout 
        android:id="@+id/appbar"
        android:fitsSystemWindows="true"
        android:layout_width="match_parent"
-       android:layout_height="wrap_content">            
-        <com.google.android.material.appbar.MaterialToolbar            
+       android:layout_height="wrap_content">
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"/>        
-    </com.google.android.material.appbar.AppBarLayout>    
-    
-    <include layout="@layout/content_main"/>
+            app:title="@string/app_name"
+            app:titleCentered="true"
+            android:layout_gravity="top"
+            android:layout_height="?attr/actionBarSize"/>
+    </com.google.android.material.appbar.AppBarLayout>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton        
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />    
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+          <us.smailbarkouch.android_breadcrumb.BreadCrumbView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"/>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="116dp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
+            tools:ignore="ObsoleteLayoutParam,UselessLeaf">
+
+            <com.google.android.material.floatingtoolbar.FloatingToolbarLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                app:layout_behavior="com.google.android.material.behavior.HideViewOnScrollBehavior"
+                style="?attr/floatingToolbarVibrantStyle">
+
+                <com.google.android.material.overflow.OverflowLinearLayout
+                    android:id="@+id/floating_toolbar_child_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/floating_toolbar_vibrant_button_bold"
+                        style="?attr/materialIconButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkable="true"
+                        android:contentDescription="@string/content_desc_back"
+                        app:icon="@drawable/rounded_arrow_back_ios_new_24" />
+                    <Button
+                        style="?attr/materialIconButtonStyle"
+                        android:id="@+id/floating_toolbar_vibrant_button_italic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkable="true"
+                        android:contentDescription="@string/content_desc_forward"
+                        app:icon="@drawable/rounded_arrow_forward_ios_24" />
+                    <Button
+                        style="?attr/materialIconButtonStyle"
+                        android:id="@+id/floating_toolbar_vibrant_button_underlined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checkable="true"
+                        android:contentDescription="@string/content_desc_select"
+                        app:icon="@drawable/round_done_all_24" />
+                    <Button
+                        style="?attr/materialIconButtonStyle"
+                        android:id="@+id/floating_toolbar_vibrant_button_settings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/content_desc_settings"
+                        app:icon="@drawable/settings_24px" />
+
+
+                </com.google.android.material.overflow.OverflowLinearLayout>
+
+            </com.google.android.material.floatingtoolbar.FloatingToolbarLayout>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="151dp"
+                android:contentDescription="@string/create"
+                app:fabCustomSize="57dp"
+                app:materialThemeOverlay="@style/ThemeOverlay.Material3Expressive.FloatingActionButton.TertiaryContainer"
+                app:srcCompat="@drawable/rounded_add_24" />
+
+
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

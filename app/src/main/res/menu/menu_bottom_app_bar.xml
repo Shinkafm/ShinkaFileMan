@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item
+            android:title="back"
+            android:icon="@drawable/rounded_arrow_back_ios_new_24"
+            app:showAsAction="always"
+            android:id="@+id/back"/>
+    <item
+        android:title="forward"
+        android:icon="@drawable/rounded_arrow_forward_ios_24"
+        app:showAsAction="always"
+        android:id="@+id/forward"/>
+    <item
+        android:title="Select"
+        android:icon="@drawable/select_24px"
+        app:showAsAction="always"
+        android:id="@+id/select"/>
+    <item
+        android:title="Select"
+        android:icon="@drawable/settings_24px"
+        app:showAsAction="always"
+        android:id="@+id/select"/>
+
+
+</menu>
